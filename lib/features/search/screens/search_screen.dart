@@ -162,9 +162,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          // Navigator.pushNamed(
-                          //     context, EventDetailScreen.routeName,
-                          //     arguments: listResponse![index]);
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -210,42 +207,81 @@ class _SearchScreenState extends State<SearchScreen> {
                                     width: 135,
                                   ),
                                 ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 235,
-                                      padding: const EdgeInsets.only(
-                                          left: 10, top: 1),
-                                      child: Text(
-                                        listResponse![index]['date_time']
-                                            .toString(),
-                                        style: const TextStyle(
-                                          color: GlobalVariables.secondaryColor,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
+                                Expanded(
+                                  // added Expanded widget
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: 235,
+                                        padding: const EdgeInsets.only(
+                                            left: 10, top: 1),
+                                        child: Text(
+                                          listResponse![index]['date_time']
+                                              .toString(),
+                                          style: const TextStyle(
+                                            color:
+                                                GlobalVariables.secondaryColor,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                    ),
-                                    Container(
-                                      width: 235,
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 10,
-                                        vertical: 7,
-                                      ),
-                                      child: Text(
-                                        listResponse![index]['title']
-                                            .toString(),
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
+                                      Container(
+                                        width: 235,
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 10,
+                                          vertical: 7,
                                         ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
+                                        child: Text(
+                                          listResponse![index]['title']
+                                              .toString(),
+                                          style: const TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      const SizedBox(
+                                        height: 11,
+                                      ),
+                                      Container(
+                                        width: 235,
+                                        padding: const EdgeInsets.only(
+                                            left: 10, top: 1),
+                                        child: Row(
+                                          children: [
+                                            const Padding(
+                                              padding:
+                                                  EdgeInsets.only(right: 5.0),
+                                              child: Icon(
+                                                Icons.location_on,
+                                                size: 18,
+                                                color:
+                                                    GlobalVariables.hintColor,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                '${listResponse![index]['venue_name'].toString()} • ${listResponse![index]['venue_city']}, ${listResponse![index]['venue_country']}',
+                                                style: const TextStyle(
+                                                  color:
+                                                      GlobalVariables.hintColor,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 13,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
