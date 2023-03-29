@@ -202,7 +202,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                         ? 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png'
                                         : listResponse![index]
                                             ['organiser_icon'],
-                                    fit: BoxFit.fitWidth,
+                                    fit: BoxFit.fitHeight,
                                     height: 135,
                                     width: 135,
                                   ),
