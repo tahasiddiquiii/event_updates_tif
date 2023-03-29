@@ -129,84 +129,89 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: Row(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              listResponse![index]['organiser_icon']
-                                      .endsWith('.svg')
-                                  ? 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png'
-                                  : listResponse![index]['organiser_icon'],
-                              fit: BoxFit.fitWidth,
-                              height: 135,
-                              width: 135,
+                          Expanded(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                listResponse![index]['organiser_icon']
+                                        .endsWith('.svg')
+                                    ? 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png'
+                                    : listResponse![index]['organiser_icon'],
+                                fit: BoxFit.fitWidth,
+                                height: 135,
+                                width: 135,
+                              ),
                             ),
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                width: 235,
-                                padding:
-                                    const EdgeInsets.only(left: 10, top: 1),
-                                child: Text(
-                                  listResponse![index]['date_time'].toString(),
-                                  style: const TextStyle(
-                                    color: GlobalVariables.secondaryColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              Container(
-                                width: 235,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 7,
-                                ),
-                                child: Text(
-                                  listResponse![index]['title'].toString(),
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 11,
-                              ),
-                              Container(
-                                width: 235,
-                                padding:
-                                    const EdgeInsets.only(left: 10, top: 1),
-                                child: Row(
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.only(right: 5.0),
-                                      child: Icon(
-                                        Icons.location_on,
-                                        size: 18,
-                                        color: GlobalVariables.hintColor,
-                                      ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 235,
+                                  padding:
+                                      const EdgeInsets.only(left: 10, top: 1),
+                                  child: Text(
+                                    listResponse![index]['date_time']
+                                        .toString(),
+                                    style: const TextStyle(
+                                      color: GlobalVariables.secondaryColor,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
                                     ),
-                                    Expanded(
-                                      child: Text(
-                                        '${listResponse![index]['venue_name'].toString()} • ${listResponse![index]['venue_city']}, ${listResponse![index]['venue_country']}',
-                                        style: const TextStyle(
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                Container(
+                                  width: 235,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 7,
+                                  ),
+                                  child: Text(
+                                    listResponse![index]['title'].toString(),
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 11,
+                                ),
+                                Container(
+                                  width: 235,
+                                  padding:
+                                      const EdgeInsets.only(left: 10, top: 1),
+                                  child: Row(
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.only(right: 5.0),
+                                        child: Icon(
+                                          Icons.location_on,
+                                          size: 18,
                                           color: GlobalVariables.hintColor,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13,
                                         ),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                    ),
-                                  ],
+                                      Expanded(
+                                        child: Text(
+                                          '${listResponse![index]['venue_name'].toString()} • ${listResponse![index]['venue_city']}, ${listResponse![index]['venue_country']}',
+                                          style: const TextStyle(
+                                            color: GlobalVariables.hintColor,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 13,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),
